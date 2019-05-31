@@ -1,0 +1,16 @@
+{
+    "Name" : "minimap",
+    "Version" : "${minimap_VERSION_MAJOR}.${minimap_VERSION_MINOR}.${minimap_VERSION_PATCH}",
+    "CompatVersion" : "${minimap_VERSION_MAJOR}.${minimap_VERSION_MINOR}.${minimap_VERSION_PATCH}",
+    "Vendor" : "Andreas Schulz",
+    "Copyright" : "(C) 2019 Andreas Schulz, (C) 2017 emJay Software Consulting AB",
+    "License" : "LGPLv2.1",
+    "Category" : "Qt Creator",
+    "Description" : "Minimap for Qt Creator.",
+    "Url" : "https://github.com/Longhanks/qtcreator-plugin-minimap",
+    "Dependencies" : [
+        { "Name" : "Core", "Version" : "${QTCREATOR_VERSION}" },
+        { "Name" : "ProjectExplorer", "Version" : "${QTCREATOR_VERSION}" },
+        { "Name" : "TextEditor", "Version" : "${QTCREATOR_VERSION}" }
+    ]
+}

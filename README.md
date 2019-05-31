@@ -1,27 +1,42 @@
-# Minimap Qt Creator plugin
+# qtcreator-plugin-minimap
 
-The minimap Qt Creator plugin lets the user use a "minimap" as scrollbar for text editors.
+Minimap for [Qt Creator](http://qt-project.org/wiki/Category:Tools::QtCreator).
 
-![ScreenShot](screenshot.png)
+## Copyright / License
 
-The minimap is only visible if is enabled, and text wrapping is **disabled** and if the line count of the file is less than the *Line Count Threshold* setting. If these criterias are not met an ordinary scrollbar is shown.
+Copyright (C) 2017 emJay Software Consulting AB (Mattias Johansson, matjo75@gmail.com),
 
-Larger textfiles tend to render a rather messy minimap. Therefore the setting *Line Count Threshold* exist for the user to customize when the minimap is to be shown or not.
+Copyright (C) 2019 Andreas Schulz. All rights reserved.
 
-You can edit the settings under *Minimap* tab in the *Text Editor* category. There are three settings available:
+Licensed under the [LGPLv2.1](https://github.com/Longhanks/qtcreator-plugin-minimap/blob/master/LICENSE) License.
 
-* Enabled
+##  LGPLv2.1 Obliations
 
-    Uncheck this box to completely disable the minimap srcollbar
+This repository is a fork of [https://github.com/i94matjo/qtcreator-minimap-plugin](https://github.com/i94matjo/qtcreator-minimap-plugin).
 
-* Width
+The original source code can be downloaded at the above repository or by checking out this repository at commit `d78de1a6b1b72aaeedfe2bb140d5d4ac1bf24fe8`.
 
-    The width in pixels of the scrollbar.
+The commits up to 2019-05-31 are copyright protected as follows:
 
-* Line Count Threshold
+(C) 2017 emJay Software Consulting AB (Mattias Johansson, matjo75@gmail.com), licensed under the [LGPLv2.1](https://github.com/Longhanks/qtcreator-plugin-minimap/blob/master/LICENSE) License.
 
-    The threshold where minimap scrollbar
+Changes to the original source can be retrieved by inspecting the commit history since the above date and/or commit.
 
-* Scrollbar slider alpha value
+## Build instructions
 
-    The alpha value of the scrollbar slider
+Provide the following variables to cmake:
+
+| Variable            | Value                                            |
+| ------------------- | ------------------------------------------------ |
+| `QTCREATOR_SRC`     | Path to directory containing Qt Creator source   |
+| `QTCREATOR_BIN`     | Path to Qt Creator executable binary             |
+| `QTCREATOR_VERSION` | Target version of Qt Creator (defaults to 4.9.0) |
+
+For example (macOS):
+
+```
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DQTCREATOR_SRC="~/Downloads/qt-creator-opensource-src-4.9.0" -DQTCREATOR_BIN="/Applications/Qt Creator.app/Contents/MacOS/Qt Creator"
+make
+sudo make install
+```
