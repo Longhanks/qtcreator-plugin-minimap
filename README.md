@@ -29,7 +29,7 @@ Provide the following variables to cmake:
 | Variable            | Value                                            |
 | ------------------- | ------------------------------------------------ |
 | `QTCREATOR_SRC`     | Path to directory containing Qt Creator source   |
-| `QTCREATOR_VERSION` | Target version of Qt Creator (defaults to 4.9.0) |
+| `QTCREATOR_VERSION` | Target version of Qt Creator (defaults to 4.9.1) |
 
 On macOS and Linux, the following variable is needed to find Qt Creator's plugin libraries:
 

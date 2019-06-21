@@ -10,7 +10,6 @@
     "Url" : "https://github.com/Longhanks/qtcreator-plugin-minimap",
     "Dependencies" : [
         { "Name" : "Core", "Version" : "${QTCREATOR_VERSION}" },
-        { "Name" : "ProjectExplorer", "Version" : "${QTCREATOR_VERSION}" },
         { "Name" : "TextEditor", "Version" : "${QTCREATOR_VERSION}" }
     ]
 }

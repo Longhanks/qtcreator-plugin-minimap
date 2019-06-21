@@ -22,7 +22,7 @@ set(QTCREATOR_SRC "" CACHE PATH "Path to Qt Creator sources")
 if (NOT WIN32)
     set(QTCREATOR_BIN "" CACHE FILEPATH "Path to Qt Creator binary")
 endif ()
-set(QTCREATOR_VERSION "4.9.0" CACHE STRING "Target version of Qt Creator")
+set(QTCREATOR_VERSION "4.9.1" CACHE STRING "Target version of Qt Creator")
 
 if (NOT EXISTS "${QTCREATOR_SRC}/src/qtcreatorplugin.pri")
     message(FATAL_ERROR "QTCREATOR_SRC must point to Qt Creator sources.")
@@ -127,7 +127,6 @@ target_include_directories(minimap SYSTEM PRIVATE
 if (APPLE)
     find_library(CORE_LIB NAMES Core PATHS "${QTCREATOR_BIN_DIR}/../PlugIns")
     find_library(EXTENSIONSYSTEM_LIB NAMES ExtensionSystem PATHS "${QTCREATOR_BIN_DIR}/../Frameworks")
-    find_library(PROJECTEXPLORER_LIB NAMES ProjectExplorer PATHS "${QTCREATOR_BIN_DIR}/../PlugIns")
     find_library(TEXTEDITOR_LIB NAMES TextEditor PATHS "${QTCREATOR_BIN_DIR}/../PlugIns")
     find_library(UTILS_LIB NAMES Utils PATHS "${QTCREATOR_BIN_DIR}/../Frameworks")
     set(QTWIDGETS_LIB "-framework QtWidgets")
@@ -141,7 +140,6 @@ if (APPLE)
 elseif (UNIX)
     find_library(CORE_LIB NAMES Core PATHS "${QTCREATOR_BIN_DIR}/../lib/qtcreator/plugins")
     find_library(EXTENSIONSYSTEM_LIB NAMES ExtensionSystem PATHS "${QTCREATOR_BIN_DIR}/../lib/qtcreator")
-    find_library(PROJECTEXPLORER_LIB NAMES ProjectExplorer PATHS "${QTCREATOR_BIN_DIR}/../lib/qtcreator/plugins")
     find_library(TEXTEDITOR_LIB NAMES TextEditor PATHS "${QTCREATOR_BIN_DIR}/../lib/qtcreator/plugins")
     find_library(UTILS_LIB NAMES Utils PATHS "${QTCREATOR_BIN_DIR}/../lib/qtcreator")
     set(QTWIDGETS_LIB "${Qt5Widgets_LIBRARIES}")
@@ -151,7 +149,6 @@ elseif (UNIX)
 else ()
     find_library(CORE_LIB NAMES Core4 PATHS "${CMAKE_SOURCE_DIR}/lib/qtcreator/plugins")
     find_library(EXTENSIONSYSTEM_LIB NAMES ExtensionSystem4 PATHS "${CMAKE_SOURCE_DIR}/lib/qtcreator")
-    find_library(PROJECTEXPLORER_LIB NAMES ProjectExplorer4 PATHS "${CMAKE_SOURCE_DIR}/lib/qtcreator/plugins")
     find_library(TEXTEDITOR_LIB NAMES TextEditor4 PATHS "${CMAKE_SOURCE_DIR}/lib/qtcreator/plugins")
     find_library(UTILS_LIB NAMES Utils4 PATHS "${CMAKE_SOURCE_DIR}/lib/qtcreator")
     set(QTWIDGETS_LIB "${Qt5Widgets_LIBRARIES}")
@@ -162,7 +159,6 @@ endif ()
 target_link_libraries(minimap PRIVATE
     "${CORE_LIB}"
     "${EXTENSIONSYSTEM_LIB}"
-    "${PROJECTEXPLORER_LIB}"
     "${TEXTEDITOR_LIB}"
     "${UTILS_LIB}"
     "${QTWIDGETS_LIB}"
