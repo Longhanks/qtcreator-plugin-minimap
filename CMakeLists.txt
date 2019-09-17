@@ -42,6 +42,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 cmake_policy(SET CMP0020 NEW)
 cmake_policy(SET CMP0071 NEW)
+cmake_policy(SET CMP0092 NEW)
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
@@ -49,7 +50,7 @@ project(minimap LANGUAGES CXX VERSION 0.1.0)
 
 configure_file("${CMAKE_SOURCE_DIR}/minimap.json.in" "${CMAKE_CURRENT_BINARY_DIR}/minimap.json")
 
-add_library(${PROJECT_NAME} SHARED minimap.cpp minimapstyle.cpp minimapsettings.cpp)
+add_library(${PROJECT_NAME} SHARED minimapproxystyle.cpp minimapproxystylehelper.cpp optionspage.cpp plugin.cpp settings.cpp)
 
 if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "(Apple)?[Cc]lang" AND NOT MSVC)
     list(APPEND COMPILER_WARNINGS
@@ -97,11 +98,27 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
         "-pedantic-errors"
         )
 else ()
-    foreach (flag_var CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE CMAKE_CXX_FLAGS_MINSIZEREL CMAKE_CXX_FLAGS_RELWITHDEBINFO)
-        string(REPLACE "/W3" "" ${flag_var} "${${flag_var}}")
-    endforeach()
     list(APPEND COMPILER_WARNINGS
         "/W4"
+        "/w14242"
+        "/w14254"
+        "/w14263"
+        "/w14265"
+        "/w14287"
+        "/we4289"
+        "/w14296"
+        "/w14311"
+        "/w14545"
+        "/w14546"
+        "/w14547"
+        "/w14549"
+        "/w14555"
+        "/w14619"
+        "/w14640"
+        "/w14826"
+        "/w14905"
+        "/w14906"
+        "/w14928"
     )
 endif ()
 string(REPLACE ";" " " COMPILER_WARNINGS_STR "${COMPILER_WARNINGS}")

@@ -2,6 +2,9 @@
 
 Minimap for [Qt Creator](http://qt-project.org/wiki/Category:Tools::QtCreator).
 
+
+[![Actions Status](https://github.com/Longhanks/qtcreator-plugin-minimap/workflows/Continuous%20Integration/badge.svg)](https://github.com/Longhanks/qtcreator-plugin-minimap/actions)
+
 ## Copyright / License
 
 Copyright (C) 2017 emJay Software Consulting AB (Mattias Johansson, matjo75@gmail.com),
