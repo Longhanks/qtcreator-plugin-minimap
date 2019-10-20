@@ -18,7 +18,9 @@ bool MinimapPlugin::initialize([[maybe_unused]] const QStringList &arguments,
     // Qt parent-child relationship will cover deletion
     new Settings(this);
 
-    auto *minimapStyle = new MinimapProxyStyle(QApplication::style());
+    this->m_oldStyle = QApplication::style();
+
+    auto *minimapStyle = new MinimapProxyStyle(this->m_oldStyle);
     QApplication::setStyle(minimapStyle);
     QApplication::style()->moveToThread(QApplication::instance()->thread());
 
@@ -29,6 +31,13 @@ bool MinimapPlugin::initialize([[maybe_unused]] const QStringList &arguments,
                      &MinimapPlugin::editorCreated);
 
     return true;
+}
+
+void MinimapPlugin::extensionsInitialized() {}
+
+ExtensionSystem::IPlugin::ShutdownFlag MinimapPlugin::aboutToShutdown() {
+    QApplication::setStyle(this->m_oldStyle);
+    return SynchronousShutdown;
 }
 
 void MinimapPlugin::editorCreated(
