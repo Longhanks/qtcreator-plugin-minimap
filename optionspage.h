@@ -1,7 +1,7 @@
 #pragma once
 
 #include <texteditor/displaysettings.h>
-#include <texteditor/texteditoroptionspage.h>
+#include <coreplugin/dialogs/ioptionspage.h>
 
 #include <QCheckBox>
 #include <QPointer>
@@ -9,7 +9,7 @@
 
 namespace Minimap::Internal {
 
-class OptionsPage final : public TextEditor::TextEditorOptionsPage {
+class OptionsPage final : public Core::IOptionsPage {
 
 public:
     OptionsPage(QObject *parent, bool isTextWrappingEnabled) noexcept;

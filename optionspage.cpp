@@ -14,7 +14,7 @@
 namespace Minimap::Internal {
 
 OptionsPage::OptionsPage(QObject *parent, bool isTextWrappingEnabled) noexcept
-    : TextEditor::TextEditorOptionsPage(parent),
+    : Core::IOptionsPage(),
       m_textWrapping(isTextWrappingEnabled) {
     this->setId(Constants::MINIMAP_SETTINGS);
     this->setDisplayName(this->tr("Minimap"));
